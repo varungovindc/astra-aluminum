@@ -4,7 +4,7 @@ import { PageHero } from "@/components/astra/PageHero";
 import { Reveal } from "@/components/astra/Reveal";
 import { PopContainer, PopIn } from "@/components/astra/PopIn";
 import { ScrollColorHeading } from "@/components/astra/ScrollColorHeading";
-import { mission, vision } from "@/lib/astra-content";
+import { mission, vision, welcomeParagraphs, whoAreWeParagraphs, managingDirector } from "@/lib/astra-content";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -43,44 +43,70 @@ function About() {
         subline="A UAE group of companies delivering aluminium, glass and smart technical services with an obsession for detail."
       />
 
-      {/* Welcome + facts */}
+      {/* Welcome message from MD */}
       <section className="bg-background py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 grid gap-14 lg:grid-cols-[1.1fr_1fr] lg:items-start">
           <Reveal>
-            <div className="flex flex-wrap gap-3 mb-8">
-              {["Established 2023", "Dubai HQ", "UAQ Branch"].map((chip) => (
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-px w-10 bg-brand-orange" />
+              <span className="text-xs font-semibold tracking-[0.3em] uppercase text-brand-orange">
+                Welcome
+              </span>
+            </div>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black uppercase leading-[0.95] tracking-tight">
+              Welcome to <span className="text-brand-orange">Astra</span>.
+            </h2>
+            <div className="mt-8 space-y-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
+              {welcomeParagraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+            <p className="mt-8 text-xs font-semibold uppercase tracking-[0.25em] text-foreground">
+              {managingDirector.name} — {managingDirector.title}
+            </p>
+          </Reveal>
+          <Reveal delay={0.1} className="lg:sticky lg:top-28">
+            <div className="border-l-4 border-brand-orange bg-surface-alt p-10">
+              <p className="font-display text-2xl sm:text-3xl font-black uppercase leading-[1.1] tracking-tight text-ink">
+                "We believe that every project — regardless of its size — deserves the highest standards of craftsmanship, safety and professionalism."
+              </p>
+              <p className="mt-8 text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                {managingDirector.name} — {managingDirector.title}
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Who are we */}
+      <section className="bg-surface-alt py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+          <Reveal>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-px w-10 bg-brand-blue" />
+              <span className="text-xs font-semibold tracking-[0.3em] uppercase text-brand-blue">
+                Who Are We
+              </span>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {["Established 2023", "Dubai HQ", "UAQ Factory", "UAE"].map((chip) => (
                 <span
                   key={chip}
-                  className="border border-border bg-surface-alt px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-foreground"
+                  className="border border-border bg-background px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-foreground"
                 >
                   {chip}
                 </span>
               ))}
             </div>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black uppercase leading-[0.95] tracking-tight">
-              Who <span className="text-brand-orange">are we</span>.
-            </h2>
-            <div className="mt-8 space-y-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
-              <p>
-                Astra Group of Companies brings together Astra Aluminium & Glass Works in Umm Al Quwain
-                and Astra Smart Technical Services LLC in Dubai — a single team delivering premium
-                envelopes, glazing, cladding and full technical fit-outs.
-              </p>
-              <p>
-                From curtain walls and ventilated facades to gypsum works, MEP and plumbing, we bring
-                specialist trades under one accountable roof. Every project is engineered, sequenced
-                and finished to a standard we are proud to sign off on.
-              </p>
-            </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="border-l-4 border-brand-orange bg-surface-alt p-10">
-              <p className="font-display text-2xl sm:text-3xl font-black uppercase leading-[1.1] tracking-tight text-ink">
-                "We believe that every project deserves the highest standards of craftsmanship, safety and professionalism."
-              </p>
-              <p className="mt-8 text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-                Sankaranarayanan — Managing Director
-              </p>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black uppercase leading-[0.95] tracking-tight">
+              A UAE group <span className="text-brand-blue">built to last</span>.
+            </h2>
+            <div className="mt-8 space-y-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
+              {whoAreWeParagraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
           </Reveal>
         </div>
