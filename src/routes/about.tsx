@@ -5,6 +5,9 @@ import { Reveal } from "@/components/astra/Reveal";
 import { PopContainer, PopIn } from "@/components/astra/PopIn";
 import { ScrollColorHeading } from "@/components/astra/ScrollColorHeading";
 import { mission, vision, welcomeParagraphs, whoAreWeParagraphs, managingDirector } from "@/lib/astra-content";
+import featWorkshop from "@/assets/feat-workshop.jpg";
+import featPergola from "@/assets/feat-pergola.jpg";
+import catGlass from "@/assets/cat-glass.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
