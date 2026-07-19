@@ -70,8 +70,8 @@ export function HeroSlider() {
         <motion.img
           src={astraBadge.url}
           alt=""
-          animate={{ y: [0, -14, 0], rotate: [0, 2, 0] }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
           className="w-[min(34vw,460px)]"
           style={{ filter: "drop-shadow(0 30px 60px rgba(232,93,44,0.35)) drop-shadow(0 10px 40px rgba(59,180,229,0.25))" }}
         />
