@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import logoAsset from "@/assets/astra-logo.png.asset.json";
+import badgeAsset from "@/assets/astra-badge-3d.png.asset.json";
 import { companies } from "@/lib/astra-content";
 
 export function Footer() {
@@ -9,7 +10,14 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr_1fr]">
           <div>
-            <img src={logoAsset.url} alt="Astra Group" className="h-14 w-auto brightness-0 invert" />
+            <motion.img
+              src={badgeAsset.url}
+              alt="Astra Group"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+              className="h-28 w-28"
+              style={{ filter: "drop-shadow(0 10px 30px rgba(232,93,44,0.35))" }}
+            />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/60">
               Astra Group of Companies — building premium aluminium, glass and smart technical solutions across the UAE.
             </p>
