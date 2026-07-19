@@ -181,7 +181,14 @@ function Home() {
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeading
               eyebrow="What We Do"
-              title={<>Aluminium. Glass. <span className="text-brand-orange">Steel.</span></>}
+              title={
+                <>
+                  <TypingText text="Aluminium. Glass. " speed={70} />
+                  <span className="text-brand-orange">
+                    <TypingText text="Steel." speed={90} restartKey="steel" />
+                  </span>
+                </>
+              }
             >
               Three disciplines, one accountable team. From architectural facades to
               finishing details — Astra Group builds it.
