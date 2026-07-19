@@ -1,10 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { HeroSlider } from "@/components/astra/HeroSlider";
 import { Reveal } from "@/components/astra/Reveal";
 import { PopContainer } from "@/components/astra/PopIn";
 import { SectionHeading } from "@/components/astra/SectionHeading";
 import { ScrollColorHeading } from "@/components/astra/ScrollColorHeading";
+import { ScrollFillText } from "@/components/astra/ScrollFillText";
 import { CategoryCard } from "@/components/astra/CategoryCard";
 import { ServiceCard } from "@/components/astra/ServiceCard";
 import { services, categories, mission, vision } from "@/lib/astra-content";
@@ -31,6 +34,140 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+function WhoWeAre() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: quoteProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 80%", "end 60%"],
+  });
+  const borderHeight = useTransform(quoteProgress, [0, 1], ["0%", "100%"]);
+
+  return (
+    <section ref={sectionRef} className="bg-surface-alt py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 grid gap-12 lg:grid-cols-2 lg:items-center">
+        {/* Left column — image + badge */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="relative"
+        >
+          <div className="relative overflow-hidden">
+            <motion.img
+              src={featWorkshop}
+              alt="Astra fabrication workshop"
+              loading="lazy"
+              width={1200}
+              height={900}
+              initial={{ scale: 1.15 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full aspect-[4/3] object-cover"
+            />
+          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.6 }}
+            className="absolute -bottom-4 left-6 bg-brand-orange px-6 py-3 text-xs font-bold uppercase tracking-[0.25em] text-white shadow-xl"
+          >
+            Since 2023
+          </motion.div>
+        </motion.div>
+
+        {/* Right column — text */}
+        <div>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center gap-3 mb-6"
+          >
+            <span className="h-px w-10 bg-brand-orange" />
+            <span className="text-xs font-semibold tracking-[0.3em] uppercase text-brand-orange">
+              — Who We Are
+            </span>
+          </motion.div>
+
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black uppercase leading-[0.95] tracking-tight">
+            <ScrollFillText
+              fill="ink"
+              strokeColor="rgba(20,20,25,0.18)"
+              className="block"
+              offset={["start 90%", "center 55%"]}
+            >
+              Built on
+            </ScrollFillText>{" "}
+            <ScrollFillText
+              fill="orange"
+              strokeColor="rgba(232,93,44,0.35)"
+              className="block"
+              offset={["start 85%", "center 50%"]}
+            >
+              Craft.
+            </ScrollFillText>
+            <ScrollFillText
+              fill="ink"
+              strokeColor="rgba(20,20,25,0.18)"
+              className="block"
+              offset={["start 80%", "center 45%"]}
+            >
+              Delivered with precision.
+            </ScrollFillText>
+          </h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="mt-8 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed"
+          >
+            Established in 2023, Astra Group of Companies brings together Astra Aluminium & Glass Works
+            in Umm Al Quwain and Astra Smart Technical Services LLC in Dubai — a single team engineering
+            facades, glazing and full technical fit-outs across the UAE.
+          </motion.p>
+
+          {/* Quote block */}
+          <div className="relative mt-10 bg-white p-8 shadow-sm">
+            <motion.span
+              aria-hidden
+              style={{ height: borderHeight }}
+              className="absolute left-0 top-0 w-1 bg-brand-orange"
+            />
+            <motion.div
+              initial={{ opacity: 0, x: -15 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <p className="font-display text-xl sm:text-2xl font-black uppercase leading-tight tracking-tight text-ink">
+                "We believe every project deserves the highest standards of craftsmanship, safety and professionalism."
+              </p>
+              <p className="mt-6 text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                Sankaranarayanan — Managing Director
+              </p>
+              <div className="mt-8">
+                <Link
+                  to="/about"
+                  className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-brand-orange"
+                >
+                  About Astra Group
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Home() {
   const smart = services.filter((s) => s.category === "smart");
   return (
@@ -49,7 +186,17 @@ function Home() {
               finishing details — Astra Group builds it.
             </SectionHeading>
           </div>
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              hidden: {},
+              show: { transition: { staggerChildren: 0.18, delayChildren: 0.1 } },
+            }}
+            style={{ perspective: 1200 }}
+            className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          >
             {categories.map((c) => (
               <CategoryCard
                 key={c.id}
@@ -57,56 +204,12 @@ function Home() {
                 services={services.filter((s) => s.category === c.id)}
               />
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* About teaser with imagery */}
-      <section className="bg-surface-alt py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 grid gap-12 lg:grid-cols-2 lg:items-center">
-          <Reveal>
-            <div className="relative overflow-hidden">
-              <img
-                src={featWorkshop}
-                alt="Astra fabrication workshop"
-                loading="lazy"
-                width={1200}
-                height={900}
-                className="w-full aspect-[4/3] object-cover"
-              />
-              <div className="absolute bottom-0 left-0 bg-brand-orange px-6 py-3 text-xs font-bold uppercase tracking-[0.25em] text-white">
-                Since 2023
-              </div>
-            </div>
-          </Reveal>
-          <div>
-            <SectionHeading eyebrow="Who We Are" title={<>Built on <span className="text-brand-orange">craft</span>, delivered with precision.</>}>
-              Established in 2023, Astra Group of Companies brings together Astra Aluminium & Glass Works
-              in Umm Al Quwain and Astra Smart Technical Services LLC in Dubai — a single team engineering
-              facades, glazing and full technical fit-outs across the UAE.
-            </SectionHeading>
-            <Reveal delay={0.1} className="mt-8">
-              <div className="border-l-4 border-brand-orange bg-white p-8 shadow-sm">
-                <p className="font-display text-xl sm:text-2xl font-black uppercase leading-tight tracking-tight text-ink">
-                  "We believe every project deserves the highest standards of craftsmanship, safety and professionalism."
-                </p>
-                <p className="mt-6 text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-                  Sankaranarayanan — Managing Director
-                </p>
-                <div className="mt-8">
-                  <Link
-                    to="/about"
-                    className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-brand-orange"
-                  >
-                    About Astra Group
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
+      {/* Who We Are — animated */}
+      <WhoWeAre />
 
       {/* Smart Technical Services */}
       <section className="relative bg-background py-24 sm:py-32 overflow-hidden">
