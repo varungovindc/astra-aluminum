@@ -1,18 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Target, Compass } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { HeroSlider } from "@/components/astra/HeroSlider";
 import { Reveal } from "@/components/astra/Reveal";
 import { PopContainer } from "@/components/astra/PopIn";
 import { SectionHeading } from "@/components/astra/SectionHeading";
-import { ScrollColorHeading } from "@/components/astra/ScrollColorHeading";
 import { ScrollFillText } from "@/components/astra/ScrollFillText";
+import { TypingText } from "@/components/astra/TypingText";
 import { CategoryCard } from "@/components/astra/CategoryCard";
 import { ServiceCard } from "@/components/astra/ServiceCard";
 import { services, categories, mission, vision } from "@/lib/astra-content";
 import featWorkshop from "@/assets/feat-workshop.jpg";
 import featPergola from "@/assets/feat-pergola.jpg";
+import astraBadge from "@/assets/astra-badge-3d.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
