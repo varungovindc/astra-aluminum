@@ -21,7 +21,6 @@ export function HeroSlider() {
 
   const slide = heroSlides[i];
   const accentClass = slide.accent === "orange" ? "text-brand-orange" : "text-brand-blue";
-  const isPrimary = i === 0;
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-ink text-white">
