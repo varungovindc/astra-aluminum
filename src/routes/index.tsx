@@ -5,23 +5,26 @@ import { Reveal } from "@/components/astra/Reveal";
 import { PopContainer } from "@/components/astra/PopIn";
 import { SectionHeading } from "@/components/astra/SectionHeading";
 import { ScrollColorHeading } from "@/components/astra/ScrollColorHeading";
+import { CategoryCard } from "@/components/astra/CategoryCard";
 import { ServiceCard } from "@/components/astra/ServiceCard";
-import { services, mission, vision } from "@/lib/astra-content";
+import { services, categories, mission, vision } from "@/lib/astra-content";
+import featWorkshop from "@/assets/feat-workshop.jpg";
+import featPergola from "@/assets/feat-pergola.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Astra Group of Companies — Aluminium, Glass & Smart Technical Services" },
+      { title: "Astra Group of Companies — Aluminium, Glass, Steel & Smart Technical Services" },
       {
         name: "description",
         content:
-          "Astra Group delivers premium aluminium, glass and smart technical services across Dubai and Umm Al Quwain.",
+          "Astra Group delivers premium aluminium, glass, steel and smart technical services across Dubai and Umm Al Quwain.",
       },
       { property: "og:title", content: "Astra Group of Companies" },
       {
         property: "og:description",
         content:
-          "Premium aluminium, glass and smart technical services across the UAE.",
+          "Premium aluminium, glass, steel and smart technical services across the UAE.",
       },
     ],
   }),
@@ -29,46 +32,103 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const featured = services.slice(0, 6);
+  const smart = services.filter((s) => s.category === "smart");
   return (
     <>
       <HeroSlider />
 
-      {/* About teaser */}
-      <section className="bg-surface-alt py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 grid gap-12 lg:grid-cols-2 lg:items-center">
-          <SectionHeading eyebrow="Who We Are" title={<>Built on <span className="text-brand-orange">craft</span>, delivered with precision.</>}>
-            Established in 2023, Astra Group of Companies brings together Astra Aluminium & Glass Works
-            in Umm Al Quwain and Astra Smart Technical Services LLC in Dubai — a single team engineering
-            facades, glazing and full technical fit-outs across the UAE.
-          </SectionHeading>
-          <Reveal className="lg:pl-10">
-            <div className="border-l-4 border-brand-orange bg-white p-8 shadow-sm">
-              <p className="font-display text-xl sm:text-2xl font-black uppercase leading-tight tracking-tight text-ink">
-                "We believe every project deserves the highest standards of craftsmanship, safety and professionalism."
-              </p>
-              <p className="mt-6 text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-                Sankaranarayanan — Managing Director
-              </p>
-              <div className="mt-8">
-                <Link
-                  to="/about"
-                  className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-brand-orange"
-                >
-                  About Astra Group
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </div>
-          </Reveal>
+      {/* 3-Grid Categories: Aluminium · Glass · Steel */}
+      <section id="categories" className="bg-background py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <SectionHeading
+              eyebrow="What We Do"
+              title={<>Aluminium. Glass. <span className="text-brand-orange">Steel.</span></>}
+            >
+              Three disciplines, one accountable team. From architectural facades to
+              finishing details — Astra Group builds it.
+            </SectionHeading>
+          </div>
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {categories.map((c) => (
+              <CategoryCard
+                key={c.id}
+                category={c}
+                services={services.filter((s) => s.category === c.id)}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Featured services */}
-      <section className="bg-background py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <SectionHeading eyebrow="Capabilities" title={<>What we <span className="text-brand-blue">build</span>.</>} accent="blue" />
+      {/* About teaser with imagery */}
+      <section className="bg-surface-alt py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 grid gap-12 lg:grid-cols-2 lg:items-center">
+          <Reveal>
+            <div className="relative overflow-hidden">
+              <img
+                src={featWorkshop}
+                alt="Astra fabrication workshop"
+                loading="lazy"
+                width={1200}
+                height={900}
+                className="w-full aspect-[4/3] object-cover"
+              />
+              <div className="absolute bottom-0 left-0 bg-brand-orange px-6 py-3 text-xs font-bold uppercase tracking-[0.25em] text-white">
+                Since 2023
+              </div>
+            </div>
+          </Reveal>
+          <div>
+            <SectionHeading eyebrow="Who We Are" title={<>Built on <span className="text-brand-orange">craft</span>, delivered with precision.</>}>
+              Established in 2023, Astra Group of Companies brings together Astra Aluminium & Glass Works
+              in Umm Al Quwain and Astra Smart Technical Services LLC in Dubai — a single team engineering
+              facades, glazing and full technical fit-outs across the UAE.
+            </SectionHeading>
+            <Reveal delay={0.1} className="mt-8">
+              <div className="border-l-4 border-brand-orange bg-white p-8 shadow-sm">
+                <p className="font-display text-xl sm:text-2xl font-black uppercase leading-tight tracking-tight text-ink">
+                  "We believe every project deserves the highest standards of craftsmanship, safety and professionalism."
+                </p>
+                <p className="mt-6 text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                  Sankaranarayanan — Managing Director
+                </p>
+                <div className="mt-8">
+                  <Link
+                    to="/about"
+                    className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-brand-orange"
+                  >
+                    About Astra Group
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Smart Technical Services */}
+      <section className="relative bg-background py-24 sm:py-32 overflow-hidden">
+        <div
+          aria-hidden
+          className="absolute right-0 top-0 h-full w-1/2 opacity-30"
+          style={{
+            backgroundImage: `linear-gradient(to left, rgba(0,0,0,0) 0%, hsl(var(--background)) 100%), url(${featPergola})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-6">
+          <div className="grid gap-6 sm:flex sm:items-end sm:justify-between">
+            <SectionHeading
+              eyebrow="Astra Smart Technical Services"
+              title={<>Everything <span className="text-brand-blue">around the build</span>.</>}
+              accent="blue"
+            >
+              MEP, plumbing, gypsum, painting, false ceiling and finishing — the full technical
+              fit-out delivered by one accountable team.
+            </SectionHeading>
             <Reveal>
               <Link
                 to="/services"
@@ -80,14 +140,14 @@ function Home() {
             </Reveal>
           </div>
           <PopContainer className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.map((s, i) => (
+            {smart.slice(0, 6).map((s, i) => (
               <ServiceCard
                 key={s.slug}
                 index={i + 1}
                 title={s.title}
                 summary={s.summary}
                 Icon={s.icon}
-                accent={i % 2 === 0 ? "orange" : "blue"}
+                accent={i % 2 === 0 ? "blue" : "orange"}
                 slug={s.slug}
               />
             ))}
