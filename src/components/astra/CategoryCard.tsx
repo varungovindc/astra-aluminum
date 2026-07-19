@@ -1,7 +1,18 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { PopIn } from "./PopIn";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import type { Category, Service } from "@/lib/astra-content";
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.9, rotateX: -18, y: 40 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    rotateX: 0,
+    y: 0,
+    transition: { type: "spring", stiffness: 90, damping: 16, mass: 0.9 },
+  },
+};
 
 export function CategoryCard({
   category,
@@ -10,19 +21,26 @@ export function CategoryCard({
   category: Category;
   services: Service[];
 }) {
+  const reduce = useReducedMotion();
   const isOrange = category.accent === "orange";
   const accentText = isOrange ? "text-brand-orange" : "text-brand-blue";
   const accentBar = isOrange ? "bg-brand-orange" : "bg-brand-blue";
-  const glow = isOrange
-    ? "hover:shadow-[0_30px_80px_-30px_rgba(232,93,44,0.55)]"
-    : "hover:shadow-[0_30px_80px_-30px_rgba(59,180,229,0.55)]";
+  const hoverShadow = isOrange
+    ? "0 30px 80px -20px rgba(232,93,44,0.55), 0 0 0 1px rgba(232,93,44,0.25)"
+    : "0 30px 80px -20px rgba(59,180,229,0.55), 0 0 0 1px rgba(59,180,229,0.25)";
 
   return (
-    <PopIn>
+    <motion.div
+      variants={reduce ? undefined : cardVariants}
+      whileHover={reduce ? undefined : { y: -10, boxShadow: hoverShadow }}
+      transition={{ type: "spring", stiffness: 300, damping: 22 }}
+      style={{ transformPerspective: 1000, transformStyle: "preserve-3d" }}
+      className="h-full"
+    >
       <Link
         to="/services"
         hash={category.id}
-        className={`group relative flex h-full flex-col overflow-hidden border border-border bg-card transition-all duration-500 hover:-translate-y-1 ${glow}`}
+        className="group relative flex h-full flex-col overflow-hidden border border-border bg-card"
       >
         {/* Image */}
         <div className="relative aspect-[4/5] overflow-hidden">
@@ -63,6 +81,6 @@ export function CategoryCard({
           </div>
         </div>
       </Link>
-    </PopIn>
+    </motion.div>
   );
 }
