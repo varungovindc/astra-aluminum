@@ -105,42 +105,13 @@ export function HeroSlider() {
                 </span>
               </div>
 
-              {isPrimary ? (
-                <h1 className="font-display font-black uppercase tracking-tight text-[14vw] sm:text-[12vw] md:text-[10vw] lg:text-[8vw] xl:text-[7.5rem] leading-[0.85] max-w-[62%]">
-                  <ScrollFillText
-                    fill="white"
-                    strokeColor="rgba(255,255,255,0.28)"
-                    className="block"
-                    offset={["start start", "end start"]}
-                  >
-                    Aluminium.
-                  </ScrollFillText>
-                  <ScrollFillText
-                    fill="white"
-                    strokeColor="rgba(255,255,255,0.28)"
-                    className="block"
-                    offset={["start start", "end start"]}
-                  >
-                    Glass.
-                  </ScrollFillText>
-                  <ScrollFillText
-                    fill="orange"
-                    strokeColor="rgba(232,93,44,0.35)"
-                    className="block"
-                    offset={["start start", "end start"]}
-                  >
-                    Steel.
-                  </ScrollFillText>
-                </h1>
-              ) : (
-                <h1 className="font-display font-black uppercase leading-[0.88] tracking-tight text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] max-w-4xl">
-                  <span className="text-white/85">{slide.headlineBefore}</span>
-                  <br className="hidden sm:block" />
-                  <span className={accentClass}>
-                    <TypingText text={slide.headlineTyped} restartKey={i} />
-                  </span>
-                </h1>
-              )}
+              <h1 className="font-display font-black uppercase leading-[0.88] tracking-tight text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] max-w-4xl">
+                <span className="text-white/85">{slide.headlineBefore}</span>
+                <br className="hidden sm:block" />
+                <span className={accentClass}>
+                  <TypingText text={slide.headlineTyped} restartKey={i} />
+                </span>
+              </h1>
 
               <p className="mt-8 max-w-xl text-base sm:text-lg text-white/70">
                 {slide.subline}
