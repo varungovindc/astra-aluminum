@@ -3,7 +3,6 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { TypingText } from "./TypingText";
-import { ScrollFillText } from "./ScrollFillText";
 import { heroSlides } from "@/lib/astra-content";
 import heroFacade from "@/assets/hero-facade.jpg";
 import catAluminium from "@/assets/cat-aluminium.jpg";
@@ -22,7 +21,6 @@ export function HeroSlider() {
 
   const slide = heroSlides[i];
   const accentClass = slide.accent === "orange" ? "text-brand-orange" : "text-brand-blue";
-  const isPrimary = i === 0;
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-ink text-white">
@@ -72,8 +70,8 @@ export function HeroSlider() {
         <motion.img
           src={astraBadge.url}
           alt=""
-          animate={{ y: [0, -14, 0], rotate: [0, 2, 0] }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
           className="w-[min(34vw,460px)]"
           style={{ filter: "drop-shadow(0 30px 60px rgba(232,93,44,0.35)) drop-shadow(0 10px 40px rgba(59,180,229,0.25))" }}
         />
@@ -106,42 +104,13 @@ export function HeroSlider() {
                 </span>
               </div>
 
-              {isPrimary ? (
-                <h1 className="font-display font-black uppercase tracking-tight text-[14vw] sm:text-[12vw] md:text-[10vw] lg:text-[8vw] xl:text-[7.5rem] leading-[0.85] max-w-[62%]">
-                  <ScrollFillText
-                    fill="white"
-                    strokeColor="rgba(255,255,255,0.28)"
-                    className="block"
-                    offset={["start start", "end start"]}
-                  >
-                    Aluminium.
-                  </ScrollFillText>
-                  <ScrollFillText
-                    fill="white"
-                    strokeColor="rgba(255,255,255,0.28)"
-                    className="block"
-                    offset={["start start", "end start"]}
-                  >
-                    Glass.
-                  </ScrollFillText>
-                  <ScrollFillText
-                    fill="orange"
-                    strokeColor="rgba(232,93,44,0.35)"
-                    className="block"
-                    offset={["start start", "end start"]}
-                  >
-                    Steel.
-                  </ScrollFillText>
-                </h1>
-              ) : (
-                <h1 className="font-display font-black uppercase leading-[0.88] tracking-tight text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] max-w-4xl">
-                  <span className="text-white/85">{slide.headlineBefore}</span>
-                  <br className="hidden sm:block" />
-                  <span className={accentClass}>
-                    <TypingText text={slide.headlineTyped} restartKey={i} />
-                  </span>
-                </h1>
-              )}
+              <h1 className="font-display font-black uppercase leading-[0.88] tracking-tight text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] max-w-4xl">
+                <span className="text-white/85">{slide.headlineBefore}</span>
+                <br className="hidden sm:block" />
+                <span className={accentClass}>
+                  <TypingText text={slide.headlineTyped} restartKey={i} />
+                </span>
+              </h1>
 
               <p className="mt-8 max-w-xl text-base sm:text-lg text-white/70">
                 {slide.subline}

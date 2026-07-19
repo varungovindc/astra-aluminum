@@ -1,18 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Target, Compass } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { HeroSlider } from "@/components/astra/HeroSlider";
 import { Reveal } from "@/components/astra/Reveal";
 import { PopContainer } from "@/components/astra/PopIn";
 import { SectionHeading } from "@/components/astra/SectionHeading";
-import { ScrollColorHeading } from "@/components/astra/ScrollColorHeading";
 import { ScrollFillText } from "@/components/astra/ScrollFillText";
+import { TypingText } from "@/components/astra/TypingText";
 import { CategoryCard } from "@/components/astra/CategoryCard";
 import { ServiceCard } from "@/components/astra/ServiceCard";
 import { services, categories, mission, vision } from "@/lib/astra-content";
 import featWorkshop from "@/assets/feat-workshop.jpg";
 import featPergola from "@/assets/feat-pergola.jpg";
+import astraBadge from "@/assets/astra-badge-3d.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -180,7 +181,14 @@ function Home() {
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeading
               eyebrow="What We Do"
-              title={<>Aluminium. Glass. <span className="text-brand-orange">Steel.</span></>}
+              title={
+                <>
+                  <TypingText text="Aluminium. Glass. " speed={70} />
+                  <span className="text-brand-orange">
+                    <TypingText text="Steel." speed={90} restartKey="steel" />
+                  </span>
+                </>
+              }
             >
               Three disciplines, one accountable team. From architectural facades to
               finishing details — Astra Group builds it.
@@ -258,30 +266,101 @@ function Home() {
         </div>
       </section>
 
-      {/* Mission & Vision teaser */}
-      <section className="relative bg-ink py-28 sm:py-36 text-white overflow-hidden">
+      {/* Mission & Vision */}
+      <section className="relative bg-ink py-24 sm:py-32 text-white overflow-hidden">
         <div
           aria-hidden
           className="absolute inset-0 opacity-30"
           style={{
             backgroundImage:
-              "radial-gradient(50% 60% at 20% 30%, rgba(232,93,44,0.25), transparent 60%), radial-gradient(45% 55% at 85% 75%, rgba(59,180,229,0.22), transparent 60%)",
+              "radial-gradient(50% 60% at 20% 30%, rgba(232,93,44,0.22), transparent 60%), radial-gradient(45% 55% at 85% 75%, rgba(59,180,229,0.2), transparent 60%)",
           }}
         />
-        <div className="relative mx-auto max-w-7xl px-6 grid gap-16 lg:grid-cols-2">
-          <Reveal>
-            <span className="text-xs font-semibold tracking-[0.3em] uppercase text-brand-orange">Our Mission</span>
-            <ScrollColorHeading to="orange" className="mt-4 text-3xl sm:text-4xl md:text-5xl">
-              {mission}
-            </ScrollColorHeading>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <span className="text-xs font-semibold tracking-[0.3em] uppercase text-brand-blue">Our Vision</span>
-            <ScrollColorHeading to="blue" className="mt-4 text-3xl sm:text-4xl md:text-5xl">
-              {vision}
-            </ScrollColorHeading>
-          </Reveal>
-          <div className="lg:col-span-2">
+        {/* Floating rotating 3D badge as decorative icon */}
+        <motion.img
+          aria-hidden
+          src={astraBadge.url}
+          alt=""
+          animate={{ rotate: 360 }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+          className="pointer-events-none absolute -right-24 top-1/2 hidden w-[420px] -translate-y-1/2 opacity-20 lg:block"
+          style={{ filter: "drop-shadow(0 20px 60px rgba(232,93,44,0.35))" }}
+        />
+        <div className="relative mx-auto max-w-7xl px-6">
+          <div className="max-w-2xl">
+            <span className="text-xs font-semibold tracking-[0.3em] uppercase text-white/60">
+              What Drives Us
+            </span>
+            <h2 className="mt-4 font-display text-4xl sm:text-5xl md:text-6xl font-black uppercase leading-[0.95] tracking-tight text-white">
+              Mission <span className="text-brand-orange">&</span> Vision
+            </h2>
+          </div>
+
+          <div className="mt-14 grid gap-6 lg:grid-cols-2">
+            {/* Mission card */}
+            <Reveal>
+              <div className="group relative h-full overflow-hidden border border-white/10 bg-white/[0.03] p-8 sm:p-10 backdrop-blur-sm transition-colors hover:border-brand-orange/50">
+                <div className="flex items-center gap-4">
+                  <motion.div
+                    animate={{ rotate: [0, 8, -8, 0] }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                    className="grid h-14 w-14 shrink-0 place-items-center border border-brand-orange/40 bg-brand-orange/10"
+                    style={{ transformStyle: "preserve-3d" }}
+                  >
+                    <Target className="h-6 w-6 text-brand-orange" strokeWidth={1.8} />
+                  </motion.div>
+                  <div>
+                    <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-orange">
+                      01 — Mission
+                    </span>
+                    <h3 className="mt-1 font-display text-2xl font-black uppercase tracking-tight text-white">
+                      Our Mission
+                    </h3>
+                  </div>
+                </div>
+                <p className="mt-6 text-base leading-relaxed text-white/75">
+                  {mission}
+                </p>
+                <span
+                  aria-hidden
+                  className="absolute left-0 top-0 h-full w-[3px] origin-top scale-y-0 bg-brand-orange transition-transform duration-500 group-hover:scale-y-100"
+                />
+              </div>
+            </Reveal>
+
+            {/* Vision card */}
+            <Reveal delay={0.15}>
+              <div className="group relative h-full overflow-hidden border border-white/10 bg-white/[0.03] p-8 sm:p-10 backdrop-blur-sm transition-colors hover:border-brand-blue/50">
+                <div className="flex items-center gap-4">
+                  <motion.div
+                    animate={{ rotate: [0, -8, 8, 0] }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                    className="grid h-14 w-14 shrink-0 place-items-center border border-brand-blue/40 bg-brand-blue/10"
+                    style={{ transformStyle: "preserve-3d" }}
+                  >
+                    <Compass className="h-6 w-6 text-brand-blue" strokeWidth={1.8} />
+                  </motion.div>
+                  <div>
+                    <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-blue">
+                      02 — Vision
+                    </span>
+                    <h3 className="mt-1 font-display text-2xl font-black uppercase tracking-tight text-white">
+                      Our Vision
+                    </h3>
+                  </div>
+                </div>
+                <p className="mt-6 text-base leading-relaxed text-white/75">
+                  {vision}
+                </p>
+                <span
+                  aria-hidden
+                  className="absolute left-0 top-0 h-full w-[3px] origin-top scale-y-0 bg-brand-blue transition-transform duration-500 group-hover:scale-y-100"
+                />
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="mt-12">
             <Reveal>
               <Link
                 to="/about"
