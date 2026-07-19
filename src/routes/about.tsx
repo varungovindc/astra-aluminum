@@ -5,6 +5,9 @@ import { Reveal } from "@/components/astra/Reveal";
 import { PopContainer, PopIn } from "@/components/astra/PopIn";
 import { ScrollColorHeading } from "@/components/astra/ScrollColorHeading";
 import { mission, vision, welcomeParagraphs, whoAreWeParagraphs, managingDirector } from "@/lib/astra-content";
+import featWorkshop from "@/assets/feat-workshop.jpg";
+import featPergola from "@/assets/feat-pergola.jpg";
+import catGlass from "@/assets/cat-glass.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -82,24 +85,35 @@ function About() {
       <section className="bg-surface-alt py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:items-start">
           <Reveal>
+            <div className="relative overflow-hidden">
+              <img
+                src={catGlass}
+                alt="Astra glass works interior"
+                loading="lazy"
+                className="w-full aspect-[4/5] object-cover"
+              />
+              <div className="absolute left-0 top-0 h-full w-1 bg-brand-blue" />
+              <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-ink/90 to-transparent">
+                <div className="flex flex-wrap gap-2">
+                  {["Est. 2023", "Dubai HQ", "UAQ Factory", "UAE"].map((chip) => (
+                    <span
+                      key={chip}
+                      className="border border-white/30 bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur"
+                    >
+                      {chip}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
             <div className="flex items-center gap-3 mb-6">
               <span className="h-px w-10 bg-brand-blue" />
               <span className="text-xs font-semibold tracking-[0.3em] uppercase text-brand-blue">
                 Who Are We
               </span>
             </div>
-            <div className="flex flex-wrap gap-3">
-              {["Established 2023", "Dubai HQ", "UAQ Factory", "UAE"].map((chip) => (
-                <span
-                  key={chip}
-                  className="border border-border bg-background px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-foreground"
-                >
-                  {chip}
-                </span>
-              ))}
-            </div>
-          </Reveal>
-          <Reveal delay={0.1}>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black uppercase leading-[0.95] tracking-tight">
               A UAE group <span className="text-brand-blue">built to last</span>.
             </h2>
@@ -111,6 +125,19 @@ function About() {
           </Reveal>
         </div>
       </section>
+
+      {/* Imagery band */}
+      <section className="bg-background">
+        <div className="mx-auto max-w-7xl px-6 py-16 grid gap-4 md:grid-cols-2">
+          <Reveal>
+            <img src={featWorkshop} alt="Astra fabrication workshop" loading="lazy" className="w-full aspect-[4/3] object-cover" />
+          </Reveal>
+          <Reveal delay={0.1}>
+            <img src={featPergola} alt="Astra pergola project" loading="lazy" className="w-full aspect-[4/3] object-cover" />
+          </Reveal>
+        </div>
+      </section>
+
 
       {/* Mission */}
       <section className="relative bg-ink py-32 text-white overflow-hidden">

@@ -4,6 +4,11 @@ import { useEffect, useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { TypingText } from "./TypingText";
 import { heroSlides } from "@/lib/astra-content";
+import heroFacade from "@/assets/hero-facade.jpg";
+import catAluminium from "@/assets/cat-aluminium.jpg";
+import catGlass from "@/assets/cat-glass.jpg";
+
+const heroImages = [heroFacade, catGlass, catAluminium];
 
 export function HeroSlider() {
   const [i, setI] = useState(0);
@@ -18,7 +23,21 @@ export function HeroSlider() {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-ink text-white">
-      {/* Backgrounds */}
+      {/* Background image with crossfade */}
+      <AnimatePresence>
+        <motion.img
+          key={`bg-${i}`}
+          src={heroImages[i % heroImages.length]}
+          alt=""
+          aria-hidden
+          initial={{ opacity: 0, scale: 1.08 }}
+          animate={{ opacity: 0.35, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      </AnimatePresence>
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-ink/95 via-ink/85 to-ink/70" />
       <div
         aria-hidden
         className="absolute inset-0 opacity-[0.06]"
@@ -38,6 +57,7 @@ export function HeroSlider() {
             "radial-gradient(45% 55% at 12% 25%, rgba(232,93,44,0.35), transparent 60%), radial-gradient(40% 50% at 90% 75%, rgba(59,180,229,0.32), transparent 60%)",
         }}
       />
+
 
       <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-6 pt-32 pb-16">
         <div className="flex-1 grid grid-cols-1 items-center">
