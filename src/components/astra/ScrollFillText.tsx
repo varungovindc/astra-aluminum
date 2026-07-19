@@ -1,9 +1,11 @@
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion, useMotionTemplate } from "framer-motion";
 import { useRef, type ReactNode } from "react";
 
 /**
- * Scroll-scrubbing text fill. Renders an outlined/faint base layer and an
- * overlay layer of the solid brand color clipped by scroll progress.
+ * Scroll-scrubbing text fill. Base layer is an outlined/faint version; the
+ * overlay layer is the solid brand color revealed by an animated clip-path
+ * tied to scroll progress. Both layers share the same layout so multi-line
+ * text wraps identically.
  */
 export function ScrollFillText({
   children,
@@ -25,7 +27,8 @@ export function ScrollFillText({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     offset: offset as any,
   });
-  const width = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const rightInset = useTransform(scrollYProgress, [0, 1], [100, 0]);
+  const clip = useMotionTemplate`inset(0 ${rightInset}% 0 0)`;
 
   const fillColor =
     fill === "orange"
@@ -37,12 +40,8 @@ export function ScrollFillText({
           : "#111214";
 
   return (
-    <span
-      ref={ref}
-      className={`relative inline-block align-baseline ${className ?? ""}`}
-      style={{ lineHeight: "0.9" }}
-    >
-      {/* Outlined / faint base */}
+    <span ref={ref} className={`relative block ${className ?? ""}`}>
+      {/* Outlined / faint base — establishes layout */}
       <span
         aria-hidden
         className="block"
@@ -53,16 +52,17 @@ export function ScrollFillText({
       >
         {children}
       </span>
-      {/* Solid fill overlay clipped by scroll */}
+      {/* Solid fill overlay, positioned identically, clipped by scroll */}
       <motion.span
         aria-hidden
-        className="absolute inset-0 block overflow-hidden"
+        className="absolute inset-0 block"
         style={{
-          width: reduce ? "100%" : width,
           color: fillColor,
+          clipPath: reduce ? "inset(0 0 0 0)" : clip,
+          WebkitClipPath: reduce ? "inset(0 0 0 0)" : (clip as never),
         }}
       >
-        <span className="block whitespace-nowrap">{children}</span>
+        {children}
       </motion.span>
       <span className="sr-only">{children}</span>
     </span>
