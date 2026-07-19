@@ -79,25 +79,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Astra Group of Companies — Aluminium, Glass & Smart Technical Services" },
+      { title: "Astra Group of Companies — Aluminium, Glass, Steel & Smart Technical Services" },
       {
         name: "description",
         content:
-          "Astra Group delivers premium aluminium, glass and smart technical solutions across Dubai and Umm Al Quwain — engineered facades, cladding, glazing and MEP.",
+          "Astra Group delivers premium aluminium, glass, steel and smart technical services across Dubai and Umm Al Quwain.",
       },
       { name: "author", content: "Astra Group of Companies" },
-      { property: "og:title", content: "Astra Group of Companies" },
+      { property: "og:title", content: "Astra Group of Companies — Aluminium, Glass, Steel & Smart Technical Services" },
       {
         property: "og:description",
         content:
-          "Premium aluminium, glass and smart technical services across the UAE.",
+          "Astra Group delivers premium aluminium, glass, steel and smart technical services across Dubai and Umm Al Quwain.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Astra Group of Companies — Aluminium, Glass, Steel & Smart Technical Services" },
+      { name: "twitter:description", content: "Astra Group delivers premium aluminium, glass, steel and smart technical services across Dubai and Umm Al Quwain." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a787349c-1b65-4be5-ae1b-7c0067d33bf3/id-preview-6522dcce--5e9c19e1-0aa6-45cb-805e-832e41ef32c7.lovable.app-1784502190377.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a787349c-1b65-4be5-ae1b-7c0067d33bf3/id-preview-6522dcce--5e9c19e1-0aa6-45cb-805e-832e41ef32c7.lovable.app-1784502190377.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

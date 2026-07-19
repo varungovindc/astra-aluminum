@@ -24,11 +24,11 @@ export const Route = createFileRoute("/")({
         content:
           "Astra Group delivers premium aluminium, glass, steel and smart technical services across Dubai and Umm Al Quwain.",
       },
-      { property: "og:title", content: "Astra Group of Companies" },
+      { property: "og:title", content: "Astra Group of Companies — Aluminium, Glass, Steel & Smart Technical Services" },
       {
         property: "og:description",
         content:
-          "Premium aluminium, glass, steel and smart technical services across the UAE.",
+          "Astra Group delivers premium aluminium, glass, steel and smart technical services across Dubai and Umm Al Quwain.",
       },
     ],
   }),
