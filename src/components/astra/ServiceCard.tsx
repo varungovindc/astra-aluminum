@@ -30,7 +30,7 @@ const IMG_MAP: Record<string, string> = {
   "false-ceiling": "photo-1497366811353-6870744d04b2",
   "painting-works": "photo-1562259949-e8e7689d7828",
   electromechanical: "photo-1581092160607-ee22621dd758",
-  "plumbing-sanitary-works": "photo-1585129777188-1e51e5f2e5c1",
+  "plumbing-sanitary-works": "photo-1584622650111-993a426fbf0a",
   "retail-shopfronts": "photo-1441986300917-64674bd600d8",
 };
 
