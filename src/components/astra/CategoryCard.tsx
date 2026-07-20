@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 import type { Category, Service } from "@/lib/astra-content";
 
 const cardVariants: Variants = {
@@ -38,7 +38,7 @@ export function CategoryCard({
     window.setTimeout(() => setTouchActive(false), 900);
   };
 
-  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
     const isTouchDevice = window.matchMedia("(hover: none), (pointer: coarse)").matches;
     if (!isTouchDevice || reduce) return;
 
