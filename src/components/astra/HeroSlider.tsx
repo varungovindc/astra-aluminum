@@ -23,7 +23,7 @@ export function HeroSlider() {
   const accentClass = slide.accent === "orange" ? "text-brand-orange" : "text-brand-blue";
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-ink text-white">
+    <section className="relative isolate min-h-screen overflow-hidden bg-ink text-white">
       {/* Background image with crossfade */}
       <AnimatePresence>
         <motion.img
@@ -65,14 +65,14 @@ export function HeroSlider() {
         initial={{ opacity: 0, scale: 0.7, rotate: -20 }}
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-        className="pointer-events-none absolute z-[1] right-[-14%] bottom-[7rem] lg:right-[-4%] lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 xl:right-[-2%]"
+        className="pointer-events-none absolute z-[12] right-3 bottom-[7.75rem] sm:right-8 sm:bottom-[8rem] md:right-12 md:bottom-[8.75rem] lg:right-[-4%] lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 xl:right-[-2%]"
       >
         <motion.img
           src={astraBadge.url}
           alt=""
           animate={{ rotate: 360 }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="w-[min(60vw,260px)] opacity-70 lg:w-[min(34vw,460px)] lg:opacity-100"
+          className="w-[clamp(8.5rem,34vw,11rem)] opacity-95 sm:w-56 md:w-64 lg:w-[min(34vw,460px)] lg:opacity-100"
           style={{ filter: "drop-shadow(0 30px 60px rgba(232,93,44,0.35)) drop-shadow(0 10px 40px rgba(59,180,229,0.25))" }}
         />
         <div
@@ -85,7 +85,7 @@ export function HeroSlider() {
         />
       </motion.div>
 
-      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-6 pt-32 pb-16">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-6 pt-32 pb-16">
         <div className="flex-1 grid grid-cols-1 items-center">
           <AnimatePresence mode="wait">
             <motion.div
