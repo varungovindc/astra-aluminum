@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { useState } from "react";
@@ -23,6 +23,7 @@ export function CategoryCard({
   services: Service[];
 }) {
   const reduce = useReducedMotion();
+  const navigate = useNavigate();
   const [touchActive, setTouchActive] = useState(false);
   const isOrange = category.accent === "orange";
   const accentText = isOrange ? "text-brand-orange" : "text-brand-blue";
@@ -35,6 +36,17 @@ export function CategoryCard({
     if (reduce) return;
     setTouchActive(true);
     window.setTimeout(() => setTouchActive(false), 900);
+  };
+
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const isTouchDevice = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+    if (!isTouchDevice || reduce) return;
+
+    event.preventDefault();
+    triggerTouchMotion();
+    window.setTimeout(() => {
+      navigate({ to: "/services", hash: category.id });
+    }, 320);
   };
 
   return (
@@ -51,6 +63,7 @@ export function CategoryCard({
       <Link
         to="/services"
         hash={category.id}
+        onClick={handleClick}
         className="group relative flex h-full flex-col overflow-hidden border border-border bg-card"
       >
         {/* Image */}
