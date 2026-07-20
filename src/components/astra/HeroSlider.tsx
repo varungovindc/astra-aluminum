@@ -59,23 +59,22 @@ export function HeroSlider() {
         }}
       />
 
-      {/* Floating 3D badge (right side) */}
+      {/* Floating 3D badge — desktop: right center. Mobile/tablet: bottom-right */}
       <motion.div
         aria-hidden
         initial={{ opacity: 0, scale: 0.7, rotate: -20 }}
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-        className="pointer-events-none absolute right-[-4%] top-1/2 z-[1] hidden -translate-y-1/2 lg:block xl:right-[-2%]"
+        className="pointer-events-none absolute z-[1] right-[-14%] bottom-[7rem] lg:right-[-4%] lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 xl:right-[-2%]"
       >
         <motion.img
           src={astraBadge.url}
           alt=""
           animate={{ rotate: 360 }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="w-[min(34vw,460px)]"
+          className="w-[min(60vw,260px)] opacity-70 lg:w-[min(34vw,460px)] lg:opacity-100"
           style={{ filter: "drop-shadow(0 30px 60px rgba(232,93,44,0.35)) drop-shadow(0 10px 40px rgba(59,180,229,0.25))" }}
         />
-        {/* Glow ring behind badge */}
         <div
           aria-hidden
           className="absolute inset-0 -z-10 blur-3xl opacity-60"
