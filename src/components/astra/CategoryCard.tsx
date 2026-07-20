@@ -49,7 +49,7 @@ export function CategoryCard({
             src={category.image}
             alt={category.title}
             loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 group-active:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 p-7">
@@ -61,7 +61,7 @@ export function CategoryCard({
             </h3>
           </div>
           <span
-            className={`absolute left-0 top-0 h-[3px] origin-left scale-x-0 ${accentBar} w-full transition-transform duration-700 group-hover:scale-x-100`}
+            className={`absolute left-0 top-0 h-[3px] origin-left scale-x-0 ${accentBar} w-full transition-transform duration-700 group-hover:scale-x-100 group-active:scale-x-100`}
           />
         </div>
 
@@ -78,7 +78,7 @@ export function CategoryCard({
           </ul>
           <div className={`mt-auto pt-7 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] ${accentText}`}>
             View {category.title}
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-active:translate-x-0.5 group-active:-translate-y-0.5" />
           </div>
         </div>
       </Link>
