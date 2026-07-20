@@ -283,7 +283,7 @@ function Home() {
           alt=""
           animate={{ rotate: 360 }}
           transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          className="pointer-events-none absolute -right-24 top-1/2 hidden w-[420px] -translate-y-1/2 opacity-20 lg:block"
+          className="pointer-events-none absolute -right-24 top-1/2 w-[320px] -translate-y-1/2 opacity-[0.07] sm:opacity-[0.1] lg:w-[420px] lg:opacity-20"
           style={{ filter: "drop-shadow(0 20px 60px rgba(232,93,44,0.35))" }}
         />
         <div className="relative mx-auto max-w-7xl px-6">
