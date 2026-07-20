@@ -33,6 +33,7 @@ export function CategoryCard({
     <motion.div
       variants={reduce ? undefined : cardVariants}
       whileHover={reduce ? undefined : { y: -10, boxShadow: hoverShadow }}
+      whileTap={reduce ? undefined : { y: -6, scale: 0.99, boxShadow: hoverShadow }}
       transition={{ type: "spring", stiffness: 300, damping: 22 }}
       style={{ transformPerspective: 1000, transformStyle: "preserve-3d" }}
       className="h-full"
