@@ -1,6 +1,7 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { useState, type MouseEvent } from "react";
 import type { Category, Service } from "@/lib/astra-content";
 
 const cardVariants: Variants = {
@@ -22,6 +23,8 @@ export function CategoryCard({
   services: Service[];
 }) {
   const reduce = useReducedMotion();
+  const navigate = useNavigate();
+  const [touchActive, setTouchActive] = useState(false);
   const isOrange = category.accent === "orange";
   const accentText = isOrange ? "text-brand-orange" : "text-brand-blue";
   const accentBar = isOrange ? "bg-brand-orange" : "bg-brand-blue";
@@ -29,18 +32,38 @@ export function CategoryCard({
     ? "0 30px 80px -20px rgba(232,93,44,0.55), 0 0 0 1px rgba(232,93,44,0.25)"
     : "0 30px 80px -20px rgba(59,180,229,0.55), 0 0 0 1px rgba(59,180,229,0.25)";
 
+  const triggerTouchMotion = () => {
+    if (reduce) return;
+    setTouchActive(true);
+    window.setTimeout(() => setTouchActive(false), 900);
+  };
+
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    const isTouchDevice = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+    if (!isTouchDevice || reduce) return;
+
+    event.preventDefault();
+    triggerTouchMotion();
+    window.setTimeout(() => {
+      navigate({ to: "/services", hash: category.id });
+    }, 320);
+  };
+
   return (
     <motion.div
       variants={reduce ? undefined : cardVariants}
       whileHover={reduce ? undefined : { y: -10, boxShadow: hoverShadow }}
       whileTap={reduce ? undefined : { y: -6, scale: 0.99, boxShadow: hoverShadow }}
+      animate={touchActive && !reduce ? { y: -8, scale: 0.99, boxShadow: hoverShadow } : undefined}
       transition={{ type: "spring", stiffness: 300, damping: 22 }}
       style={{ transformPerspective: 1000, transformStyle: "preserve-3d" }}
       className="h-full"
+      onPointerDown={triggerTouchMotion}
     >
       <Link
         to="/services"
         hash={category.id}
+        onClick={handleClick}
         className="group relative flex h-full flex-col overflow-hidden border border-border bg-card"
       >
         {/* Image */}
@@ -49,9 +72,24 @@ export function CategoryCard({
             src={category.image}
             alt={category.title}
             loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 group-active:scale-105"
+            className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 group-active:scale-105 ${touchActive ? "scale-105" : ""}`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+          <motion.span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 z-10 lg:hidden"
+            initial={false}
+            animate={
+              reduce
+                ? { opacity: 0 }
+                : { opacity: touchActive ? [0, 0.55, 0] : [0, 0.22, 0], x: ["-65%", "65%"] }
+            }
+            transition={{ duration: touchActive ? 0.65 : 3.4, repeat: touchActive ? 0 : Infinity, repeatDelay: 1.4 }}
+            style={{
+              background:
+                "linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.28) 48%, transparent 72%)",
+            }}
+          />
           <div className="absolute inset-x-0 bottom-0 p-7">
             <span className={`text-[10px] font-bold tracking-[0.3em] uppercase ${accentText}`}>
               {category.eyebrow}
@@ -61,7 +99,7 @@ export function CategoryCard({
             </h3>
           </div>
           <span
-            className={`absolute left-0 top-0 h-[3px] origin-left scale-x-0 ${accentBar} w-full transition-transform duration-700 group-hover:scale-x-100 group-active:scale-x-100`}
+            className={`absolute left-0 top-0 h-[3px] origin-left ${touchActive ? "scale-x-100" : "scale-x-0"} ${accentBar} w-full transition-transform duration-700 group-hover:scale-x-100 group-active:scale-x-100`}
           />
         </div>
 

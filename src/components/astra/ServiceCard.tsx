@@ -1,6 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion";
-import type { PointerEvent } from "react";
+import { useState, type PointerEvent } from "react";
 
 // Unsplash photo backdrops per service slug (fallback by category keyword).
 const IMG_MAP: Record<string, string> = {
@@ -55,6 +55,7 @@ export function ServiceCard({
   slug: string;
 }) {
   const reduce = useReducedMotion();
+  const [touchActive, setTouchActive] = useState(false);
   const isOrange = accent === "orange";
   const bar = isOrange ? "bg-brand-orange" : "bg-brand-blue";
   const iconColor = isOrange ? "text-brand-orange" : "text-brand-blue";
@@ -77,6 +78,17 @@ export function ServiceCard({
   const handleLeave = () => {
     mx.set(0);
     my.set(0);
+    setTouchActive(false);
+  };
+  const handlePointerDown = (e: PointerEvent<HTMLDivElement>) => {
+    if (reduce) return;
+    handleMove(e);
+    setTouchActive(true);
+    window.setTimeout(() => {
+      setTouchActive(false);
+      mx.set(0);
+      my.set(0);
+    }, 900);
   };
 
   return (
@@ -86,8 +98,11 @@ export function ServiceCard({
         show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 120, damping: 18 } },
       }}
       onPointerMove={handleMove}
+      onPointerDown={handlePointerDown}
       onPointerLeave={handleLeave}
       whileHover={reduce ? undefined : { boxShadow: glow }}
+      whileTap={reduce ? undefined : { scale: 0.985, boxShadow: glow }}
+      animate={touchActive && !reduce ? { boxShadow: glow } : undefined}
       style={{
         rotateX: reduce ? 0 : rotX,
         rotateY: reduce ? 0 : rotY,
@@ -103,7 +118,7 @@ export function ServiceCard({
         alt=""
         aria-hidden
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 group-active:scale-105 ${touchActive ? "scale-105" : ""}`}
       />
       {/* Dark gradient overlay */}
       <div
@@ -117,7 +132,22 @@ export function ServiceCard({
       {/* Accent bar */}
       <span
         aria-hidden
-        className={`absolute left-0 top-0 h-full w-[3px] origin-top scale-y-0 ${bar} transition-transform duration-500 group-hover:scale-y-100`}
+        className={`absolute left-0 top-0 h-full w-[3px] origin-top ${touchActive ? "scale-y-100" : "scale-y-0"} ${bar} transition-transform duration-500 group-hover:scale-y-100 group-active:scale-y-100`}
+      />
+      <motion.span
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-10 lg:hidden"
+        initial={false}
+        animate={
+          reduce
+            ? { opacity: 0 }
+            : { opacity: touchActive ? [0, 0.45, 0] : [0, 0.18, 0], x: ["-65%", "65%"] }
+        }
+        transition={{ duration: touchActive ? 0.65 : 3.6, repeat: touchActive ? 0 : Infinity, repeatDelay: 1.6 }}
+        style={{
+          background:
+            "linear-gradient(115deg, transparent 18%, rgba(255,255,255,0.24) 48%, transparent 74%)",
+        }}
       />
 
       {/* Content (parallax Z lift) */}
