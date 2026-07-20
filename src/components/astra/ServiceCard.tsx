@@ -1,7 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion";
-import type { PointerEvent } from "react";
-import { useState } from "react";
+import { useState, type PointerEvent } from "react";
 
 // Unsplash photo backdrops per service slug (fallback by category keyword).
 const IMG_MAP: Record<string, string> = {
