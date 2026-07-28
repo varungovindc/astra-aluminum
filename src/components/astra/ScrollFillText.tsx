@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useReducedMotion, useMotionTemplate } from "framer-motion";
-import { useRef, type ReactNode } from "react";
+import { useRef, type ReactNode, type RefObject } from "react";
 
 /**
  * Scroll-scrubbing text fill. Base layer is an outlined/faint version; the
@@ -13,17 +13,19 @@ export function ScrollFillText({
   className,
   strokeColor = "rgba(255,255,255,0.22)",
   offset = ["start 85%", "end 40%"],
+  target,
 }: {
   children: ReactNode;
   fill?: "orange" | "blue" | "ink" | "white";
   className?: string;
   strokeColor?: string;
   offset?: [string, string];
+  target?: RefObject<Element | null>;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: target ?? ref,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     offset: offset as any,
   });
