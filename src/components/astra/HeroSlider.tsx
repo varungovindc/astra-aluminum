@@ -14,6 +14,7 @@ const heroImages = [heroFacade, catGlass, catAluminium];
 
 export function HeroSlider() {
   const [i, setI] = useState(0);
+  const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const id = setInterval(() => setI((n) => (n + 1) % heroSlides.length), 8000);
@@ -24,7 +25,7 @@ export function HeroSlider() {
   const accentClass = slide.accent === "orange" ? "text-brand-orange" : "text-brand-blue";
 
   return (
-    <section className="relative isolate min-h-screen overflow-hidden bg-ink text-white">
+    <section ref={heroRef} className="relative isolate min-h-screen overflow-hidden bg-ink text-white">
       {/* Background image with crossfade */}
       <AnimatePresence>
         <motion.img
@@ -104,12 +105,46 @@ export function HeroSlider() {
                 </span>
               </div>
 
-              <h1 className="font-display font-black uppercase leading-[0.88] tracking-tight text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] max-w-4xl">
-                <span className="text-white/85">{slide.headlineBefore}</span>
-                <br className="hidden sm:block" />
-                <span className={accentClass}>
-                  <TypingText text={slide.headlineTyped} restartKey={i} />
-                </span>
+              <h1 className="font-display font-black uppercase leading-[0.85] tracking-tight text-[clamp(3rem,12vw,7.5rem)] max-w-4xl">
+                {i === 0 ? (
+                  <>
+                    <ScrollFillText
+                      target={heroRef}
+                      fill="orange"
+                      strokeColor="rgba(232,93,44,0.55)"
+                      className="block"
+                      offset={["start start", "end start"]}
+                    >
+                      Aluminium.
+                    </ScrollFillText>
+                    <ScrollFillText
+                      target={heroRef}
+                      fill="blue"
+                      strokeColor="rgba(59,180,229,0.55)"
+                      className="block"
+                      offset={["start start", "end start"]}
+                    >
+                      Glass.
+                    </ScrollFillText>
+                    <ScrollFillText
+                      target={heroRef}
+                      fill="orange"
+                      strokeColor="rgba(232,93,44,0.55)"
+                      className="block"
+                      offset={["start start", "end start"]}
+                    >
+                      Steel.
+                    </ScrollFillText>
+                  </>
+                ) : (
+                  <>
+                    <span className="text-white/85">{slide.headlineBefore}</span>
+                    <br className="hidden sm:block" />
+                    <span className={accentClass}>
+                      <TypingText text={slide.headlineTyped} restartKey={i} />
+                    </span>
+                  </>
+                )}
               </h1>
 
               <p className="mt-8 max-w-xl text-base sm:text-lg text-white/70">
