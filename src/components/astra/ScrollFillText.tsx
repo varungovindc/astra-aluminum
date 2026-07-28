@@ -20,12 +20,12 @@ export function ScrollFillText({
   className?: string;
   strokeColor?: string;
   offset?: [string, string];
-  target?: RefObject<Element | null>;
+  target?: RefObject<HTMLElement | null>;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({
-    target: target ?? ref,
+    target: target ?? (ref as RefObject<HTMLElement>),
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     offset: offset as any,
   });
