@@ -8,7 +8,7 @@ import { heroSlides } from "@/lib/astra-content";
 import heroFacade from "@/assets/hero-facade.jpg";
 import catAluminium from "@/assets/cat-aluminium.jpg";
 import catGlass from "@/assets/cat-glass.jpg";
-import astraBadge from "@/assets/astra-badge-3d.png.asset.json";
+import astraBadge from "@/assets/astra-badge.png.asset.json";
 
 const heroImages = [heroFacade, catGlass, catAluminium];
 
@@ -69,13 +69,10 @@ export function HeroSlider() {
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
         className="pointer-events-none absolute z-[12] right-3 bottom-[7.75rem] sm:right-8 sm:bottom-[8rem] md:right-12 md:bottom-[8.75rem] lg:right-[-4%] lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 xl:right-[-2%]"
       >
-        <motion.img
+        <img
           src={astraBadge.url}
           alt=""
-          animate={{ rotate: 360 }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
           className="w-[clamp(8.5rem,34vw,11rem)] opacity-95 sm:w-56 md:w-64 lg:w-[min(34vw,460px)] lg:opacity-100"
-          style={{ filter: "drop-shadow(0 30px 60px rgba(232,93,44,0.35)) drop-shadow(0 10px 40px rgba(59,180,229,0.25))" }}
         />
         <div
           aria-hidden
@@ -98,9 +95,9 @@ export function HeroSlider() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-4xl"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <span className={`h-px w-10 ${slide.accent === "orange" ? "bg-brand-orange" : "bg-brand-blue"}`} />
-                <span className={`text-xs font-semibold tracking-[0.3em] uppercase ${accentClass}`}>
+              <div className="flex items-center gap-4 mb-8">
+                <span className={`h-[2px] w-12 ${slide.accent === "orange" ? "bg-brand-orange" : "bg-brand-blue"}`} />
+                <span className={`text-lg sm:text-xl font-black tracking-[0.45em] uppercase ${accentClass}`}>
                   {slide.eyebrow}
                 </span>
               </div>
