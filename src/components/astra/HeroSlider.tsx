@@ -8,7 +8,7 @@ import { heroSlides } from "@/lib/astra-content";
 import heroFacade from "@/assets/hero-facade.jpg";
 import catAluminium from "@/assets/cat-aluminium.jpg";
 import catGlass from "@/assets/cat-glass.jpg";
-import astraBadge from "@/assets/astra-badge-3d.png.asset.json";
+import astraBadge from "@/assets/astra-badge.png.asset.json";
 
 const heroImages = [heroFacade, catGlass, catAluminium];
 
@@ -72,8 +72,6 @@ export function HeroSlider() {
         <motion.img
           src={astraBadge.url}
           alt=""
-          animate={{ rotate: 360 }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
           className="w-[clamp(8.5rem,34vw,11rem)] opacity-95 sm:w-56 md:w-64 lg:w-[min(34vw,460px)] lg:opacity-100"
           style={{ filter: "drop-shadow(0 30px 60px rgba(232,93,44,0.35)) drop-shadow(0 10px 40px rgba(59,180,229,0.25))" }}
         />
@@ -100,7 +98,7 @@ export function HeroSlider() {
             >
               <div className="flex items-center gap-3 mb-6">
                 <span className={`h-px w-10 ${slide.accent === "orange" ? "bg-brand-orange" : "bg-brand-blue"}`} />
-                <span className={`text-xs font-semibold tracking-[0.3em] uppercase ${accentClass}`}>
+                <span className={`text-base font-bold tracking-[0.4em] uppercase ${accentClass}`}>
                   {slide.eyebrow}
                 </span>
               </div>
