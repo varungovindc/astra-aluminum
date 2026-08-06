@@ -41,7 +41,7 @@ export function Nav() {
               to={l.to}
               activeOptions={{ exact: l.to === "/" }}
               activeProps={{ className: "text-brand-orange" }}
-              inactiveProps={{ className: "text-foreground/80 hover:text-foreground" }}
+              inactiveProps={{ className: "text-slate-900 hover:text-brand-orange" }}
               className="text-xs font-semibold uppercase tracking-[0.2em] transition-colors"
             >
               {l.label}
@@ -56,7 +56,7 @@ export function Nav() {
         </nav>
 
         <button
-          className="md:hidden text-foreground p-2"
+          className="md:hidden text-slate-900 p-2"
           onClick={() => setOpen((o) => !o)}
           aria-label="Toggle menu"
         >
