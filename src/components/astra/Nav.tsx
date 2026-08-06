@@ -34,7 +34,7 @@ export function Nav() {
           <img src={logoAsset.url} alt="Astra Group" className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto" />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-10">
           {links.map((l) => (
             <Link
               key={l.to}
@@ -42,7 +42,7 @@ export function Nav() {
               activeOptions={{ exact: l.to === "/" }}
               activeProps={{ className: "text-brand-orange" }}
               inactiveProps={{ className: "text-slate-900 hover:text-brand-orange" }}
-              className="text-xs font-semibold uppercase tracking-[0.2em] transition-colors"
+              className="text-sm font-bold uppercase tracking-[0.25em] transition-colors"
             >
               {l.label}
             </Link>
