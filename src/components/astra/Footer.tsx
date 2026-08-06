@@ -59,9 +59,11 @@ export function Footer() {
           <p className="text-xs uppercase tracking-[0.2em] text-white/40">
             © {new Date().getFullYear()} Astra Group of Companies
           </p>
-          <div className="flex gap-6 text-xs uppercase tracking-[0.2em] text-white/50">
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs uppercase tracking-[0.2em] text-white/50">
             <Link to="/about" className="hover:text-white">About</Link>
             <Link to="/services" className="hover:text-white">Services</Link>
+            <Link to="/projects" className="hover:text-white">Projects</Link>
+            <Link to="/careers" className="hover:text-white">Careers</Link>
             <Link to="/contact" className="hover:text-white">Contact</Link>
           </div>
         </div>

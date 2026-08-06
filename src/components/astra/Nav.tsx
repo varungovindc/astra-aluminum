@@ -5,8 +5,10 @@ import logoAsset from "@/assets/astra-logo-horizontal.png.asset.json";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About Us" },
+  { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
+  { to: "/projects", label: "Projects" },
+  { to: "/careers", label: "Careers" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
