@@ -96,9 +96,9 @@ export function HeroSlider() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-4xl"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <span className={`h-px w-10 ${slide.accent === "orange" ? "bg-brand-orange" : "bg-brand-blue"}`} />
-                <span className={`text-base font-bold tracking-[0.4em] uppercase ${accentClass}`}>
+              <div className="flex items-center gap-4 mb-8">
+                <span className={`h-[2px] w-12 ${slide.accent === "orange" ? "bg-brand-orange" : "bg-brand-blue"}`} />
+                <span className={`text-lg sm:text-xl font-black tracking-[0.45em] uppercase ${accentClass}`}>
                   {slide.eyebrow}
                 </span>
               </div>
