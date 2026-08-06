@@ -13,13 +13,13 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Reach Astra Aluminium & Glass Works in Umm Al Quwain and Astra Smart Technical Services LLC in Dubai — get a quote or brief us on your project.",
+          "Reach Astra Aluminium & Glass Works in Umm Al Quwain — get a quote or brief us on your project.",
       },
       { property: "og:title", content: "Contact — Astra Group" },
       {
         property: "og:description",
         content:
-          "Get in touch with Astra Group in Dubai and Umm Al Quwain.",
+          "Get in touch with Astra Group in Umm Al Quwain.",
       },
     ],
   }),
@@ -34,7 +34,7 @@ function Contact() {
         crumb="Contact"
         eyebrow="Talk To Astra"
         title="Let's build."
-        subline="Two offices, one team. Reach the right company below or send us your brief."
+        subline="Reach our team in Umm Al Quwain below or send us your brief."
       />
 
       <section className="bg-background py-24 sm:py-32">

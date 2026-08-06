@@ -144,16 +144,9 @@ export const companies = [
   {
     name: "Astra Aluminium & Glass Works",
     city: "Umm Al Quwain, UAE",
-    phone: "+971 00 000 0000",
+    phone: "+971 564949513",
     email: "info@astragroup.ae",
     address: "Umm Al Quwain, United Arab Emirates",
-  },
-  {
-    name: "Astra Smart Technical Services LLC",
-    city: "Dubai, UAE",
-    phone: "+971 00 000 0000",
-    email: "hello@astragroup.ae",
-    address: "Dubai, United Arab Emirates",
   },
 ];
 
