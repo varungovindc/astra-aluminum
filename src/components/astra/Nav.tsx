@@ -25,24 +25,24 @@ export function Nav() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/85 backdrop-blur-lg border-b border-border"
-          : "bg-transparent"
+          ? "bg-white border-b border-border shadow-sm"
+          : "bg-white"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
+      <div className="mx-auto max-w-7xl px-6 h-20 md:h-24 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <img src={logoAsset.url} alt="Astra Group" className="h-9 w-auto" />
+          <img src={logoAsset.url} alt="Astra Group" className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto" />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-10">
           {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
               activeOptions={{ exact: l.to === "/" }}
               activeProps={{ className: "text-brand-orange" }}
-              inactiveProps={{ className: "text-foreground/80 hover:text-foreground" }}
-              className="text-xs font-semibold uppercase tracking-[0.2em] transition-colors"
+              inactiveProps={{ className: "text-slate-900 hover:text-brand-orange" }}
+              className="text-sm font-bold uppercase tracking-[0.25em] transition-colors"
             >
               {l.label}
             </Link>
@@ -56,7 +56,7 @@ export function Nav() {
         </nav>
 
         <button
-          className="md:hidden text-foreground p-2"
+          className="md:hidden text-slate-900 p-2"
           onClick={() => setOpen((o) => !o)}
           aria-label="Toggle menu"
         >
