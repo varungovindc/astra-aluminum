@@ -180,3 +180,84 @@ export const managingDirector = {
   title: "Managing Director",
   company: "For and on behalf of Astra Group of Companies",
 };
+
+export const careers = [
+  {
+    id: "project-engineer",
+    title: "Project Engineer (Aluminium & Glass)",
+    location: "Dubai / UAQ",
+    type: "Full-time",
+    description: "We are looking for an experienced Project Engineer to oversee aluminium and glass installation projects, ensuring quality, safety, and timely delivery.",
+    requirements: [
+      "Bachelor's degree in Civil or Mechanical Engineering.",
+      "3-5 years of experience in the UAE aluminium and glass industry.",
+      "Proficient in AutoCAD and project management software.",
+      "Strong communication and leadership skills.",
+    ],
+  },
+  {
+    id: "fabricator",
+    title: "Aluminium Fabricator",
+    location: "Umm Al Quwain",
+    type: "Full-time",
+    description: "Join our production team in UAQ. You will be responsible for cutting, assembling, and finishing high-quality aluminium door and window systems.",
+    requirements: [
+      "Proven experience as an aluminium fabricator.",
+      "Ability to read and interpret technical drawings.",
+      "Experience with various profile systems (Technal, Schuco, Gulf Extrusions).",
+      "Focus on precision and quality.",
+    ],
+  },
+  {
+    id: "sales-executive",
+    title: "Sales Executive",
+    location: "Dubai",
+    type: "Full-time",
+    description: "Drive growth for our Smart Technical Services division. You will build relationships with contractors, consultants, and property developers.",
+    requirements: [
+      "Previous sales experience in UAE construction or technical services.",
+      "Excellent negotiation and presentation skills.",
+      "Valid UAE driving license.",
+      "Self-motivated with a track record of meeting targets.",
+    ],
+  },
+];
+
+export const projects = [
+  {
+    id: "luxury-villa-palm",
+    title: "Luxury Villa — Palm Jumeirah",
+    category: "Aluminium & Glass",
+    description: "Full supply and installation of slim-profile sliding doors, structural glass partitions, and bespoke aluminium pergolas for a premium residential project.",
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1200&auto=format&fit=crop",
+    year: "2024",
+    location: "Dubai",
+  },
+  {
+    id: "commercial-tower-uaq",
+    title: "Commercial Office Tower",
+    category: "Curtain Wall & Cladding",
+    description: "Engineering and execution of unitized curtain wall system and fire-rated ACP cladding for a 15-story commercial development.",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop",
+    year: "2023",
+    location: "Umm Al Quwain",
+  },
+  {
+    id: "retail-hub-dubai",
+    title: "Modern Retail Hub",
+    category: "Shopfronts & Steel Works",
+    description: "Frameless glass shopfronts and decorative stainless steel canopies for a high-end retail destination.",
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop",
+    year: "2024",
+    location: "Dubai",
+  },
+  {
+    id: "industrial-warehouse",
+    title: "Industrial Logistics Center",
+    category: "Steel Structures",
+    description: "Design and fabrication of heavy-duty steel sheds, mezzanine floors, and automated industrial gates.",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop",
+    year: "2023",
+    location: "Dubai",
+  },
+];
