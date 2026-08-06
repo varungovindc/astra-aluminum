@@ -13,7 +13,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Reach Astra Aluminium & Glass Works in Umm Al Quwain and Astra Smart Technical Services LLC in Dubai — get a quote or brief us on your project.",
+          "Reach Astra Aluminium & Glass Works in Umm Al Quwain — get a quote or brief us on your project.",
       },
       { property: "og:title", content: "Contact — Astra Group" },
       {
