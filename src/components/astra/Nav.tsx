@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import logoAsset from "@/assets/astra-logo.png.asset.json";
+import logoAsset from "@/assets/astra-logo-horizontal.png.asset.json";
 
 const links = [
   { to: "/", label: "Home" },
@@ -31,7 +31,7 @@ export function Nav() {
     >
       <div className="mx-auto max-w-7xl px-6 h-20 md:h-24 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <img src={logoAsset.url} alt="Astra Group" className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto" />
+          <img src={logoAsset.url} alt="Astra Group" className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto object-contain" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">
