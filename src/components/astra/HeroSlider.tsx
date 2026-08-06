@@ -69,11 +69,10 @@ export function HeroSlider() {
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
         className="pointer-events-none absolute z-[12] right-3 bottom-[7.75rem] sm:right-8 sm:bottom-[8rem] md:right-12 md:bottom-[8.75rem] lg:right-[-4%] lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 xl:right-[-2%]"
       >
-        <motion.img
+        <img
           src={astraBadge.url}
           alt=""
           className="w-[clamp(8.5rem,34vw,11rem)] opacity-95 sm:w-56 md:w-64 lg:w-[min(34vw,460px)] lg:opacity-100"
-          style={{ filter: "drop-shadow(0 30px 60px rgba(232,93,44,0.35)) drop-shadow(0 10px 40px rgba(59,180,229,0.25))" }}
         />
         <div
           aria-hidden
