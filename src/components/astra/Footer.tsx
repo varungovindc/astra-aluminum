@@ -10,13 +10,10 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr_1fr]">
           <div>
-            <motion.img
-              src={badgeAsset.url}
+            <img
+              src={logoAsset.url}
               alt="Astra Group"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-              className="h-28 w-28"
-              style={{ filter: "drop-shadow(0 10px 30px rgba(232,93,44,0.35))" }}
+              className="h-16 w-auto brightness-0 invert opacity-80"
             />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/60">
               Astra Group of Companies — building premium aluminium, glass and smart technical solutions across the UAE.
