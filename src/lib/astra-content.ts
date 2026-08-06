@@ -112,7 +112,7 @@ export const categories: Category[] = [
 
 export const heroSlides = [
   {
-    eyebrow: "Astra Group of Companies",
+    eyebrow: "Astra Group Of Companies",
     headlineBefore: "Aluminium. Glass. ",
     headlineTyped: "Steel.",
     subline: "A UAE group delivering premium aluminium, glass, steel and smart technical services across Dubai and Umm Al Quwain.",
