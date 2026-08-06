@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "asset_id": "efe7ab5f-fab1-4624-9eb6-7b2e6bb75cad",
+  "asset_id": "2118fee4-db16-480f-844b-4d3de5084d82",
   "project_id": "5e9c19e1-0aa6-45cb-805e-832e41ef32c7",
-  "url": "/__l5e/assets-v1/efe7ab5f-fab1-4624-9eb6-7b2e6bb75cad/astra-badge.png",
-  "r2_key": "a/v1/5e9c19e1-0aa6-45cb-805e-832e41ef32c7/efe7ab5f-fab1-4624-9eb6-7b2e6bb75cad/astra-badge.png",
-  "original_filename": "astra-badge.png",
-  "size": 330851,
-  "content_type": "image/jpeg",
-  "created_at": "2026-08-06T12:56:07Z"
+  "url": "/__l5e/assets-v1/2118fee4-db16-480f-844b-4d3de5084d82/astra-badge-clean.png",
+  "r2_key": "a/v1/5e9c19e1-0aa6-45cb-805e-832e41ef32c7/2118fee4-db16-480f-844b-4d3de5084d82/astra-badge-clean.png",
+  "original_filename": "astra-badge-clean.png",
+  "size": 1681538,
+  "content_type": "image/png",
+  "created_at": "2026-08-06T12:57:47Z"
 }
