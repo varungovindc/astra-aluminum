@@ -34,7 +34,7 @@ function Contact() {
         crumb="Contact"
         eyebrow="Talk To Astra"
         title="Let's build."
-        subline="Two offices, one team. Reach the right company below or send us your brief."
+        subline="Reach our team in Umm Al Quwain below or send us your brief."
       />
 
       <section className="bg-background py-24 sm:py-32">
