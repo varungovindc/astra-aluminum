@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import badgeAsset from "@/assets/astra-badge-3d.png.asset.json";
+import logoAsset from "@/assets/astra-logo-horizontal.png.asset.json";
 import { companies } from "@/lib/astra-content";
 
 export function Footer() {
