@@ -19,7 +19,7 @@ export const Route = createFileRoute("/contact")({
       {
         property: "og:description",
         content:
-          "Get in touch with Astra Group in Dubai and Umm Al Quwain.",
+          "Get in touch with Astra Group in Umm Al Quwain.",
       },
     ],
   }),
