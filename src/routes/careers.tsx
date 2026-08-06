@@ -33,7 +33,7 @@ function Careers() {
               Build your <span className="text-brand-orange">future</span> with Astra.
             </h1>
             <p className="mt-8 max-w-2xl text-lg text-white/60 leading-relaxed">
-              We are always looking for talented individuals to join our growing team in Dubai and Umm Al Quwain. Explore our current openings and help us shape the future of UAE construction.
+              We are always looking for talented individuals to join our growing team in Umm Al Quwain. Explore our current openings and help us shape the future of UAE construction.
             </p>
           </Reveal>
         </div>
@@ -86,10 +86,13 @@ function Careers() {
                     </div>
                   </div>
                   <div className="shrink-0">
-                    <button className="inline-flex items-center gap-2 bg-ink px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white transition-all hover:bg-brand-orange group-hover:-translate-y-1">
+                    <a 
+                      href={`mailto:hr@astragroup.ae?subject=Application for ${job.title}`}
+                      className="inline-flex items-center gap-2 bg-ink px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white transition-all hover:bg-brand-orange group-hover:-translate-y-1"
+                    >
                       Apply Now
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </button>
+                    </a>
                   </div>
                 </div>
                 <span className="absolute left-0 top-0 h-full w-[3px] origin-top scale-y-0 bg-brand-orange transition-transform duration-500 group-hover:scale-y-100" />
@@ -113,7 +116,7 @@ function Careers() {
                 </p>
               </div>
               <a
-                href="mailto:careers@astragroup.ae"
+                href="mailto:hr@astragroup.ae"
                 className="inline-flex items-center gap-2 bg-white px-8 py-5 text-xs font-bold uppercase tracking-[0.2em] text-brand-blue transition-transform hover:-translate-y-1"
               >
                 <Send className="h-4 w-4" />
