@@ -42,9 +42,16 @@ export function Footer() {
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-orange" />
                   <span>{c.address}</span>
                 </li>
-                <li className="flex items-center gap-3">
-                  <Phone className="h-4 w-4 shrink-0 text-brand-blue" />
-                  <a href={`tel:${c.phone.replace(/\s/g, "")}`}>{c.phone}</a>
+                <li className="flex flex-col gap-2">
+                  <div className="flex items-center gap-3">
+                    <Phone className="h-4 w-4 shrink-0 text-brand-blue" />
+                    <a href={`tel:${c.phone.replace(/\s/g, "")}`}>{c.phone} (Landline)</a>
+                  </div>
+                  {c.mobile && (
+                    <div className="flex items-center gap-3 pl-7">
+                      <a href={`tel:${c.mobile.replace(/\s/g, "")}`}>{c.mobile} (Mob)</a>
+                    </div>
+                  )}
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="h-4 w-4 shrink-0 text-brand-blue" />

@@ -58,11 +58,20 @@ function Contact() {
                       <MapPin className={`mt-0.5 h-4 w-4 shrink-0 ${i === 0 ? "text-brand-orange" : "text-brand-blue"}`} />
                       <span>{c.address}</span>
                     </li>
-                    <li className="flex items-center gap-3">
-                      <Phone className={`h-4 w-4 shrink-0 ${i === 0 ? "text-brand-orange" : "text-brand-blue"}`} />
-                      <a href={`tel:${c.phone.replace(/\s/g, "")}`} className="hover:text-foreground">
-                        {c.phone}
-                      </a>
+                    <li className="flex flex-col gap-3">
+                      <div className="flex items-center gap-3">
+                        <Phone className={`h-4 w-4 shrink-0 ${i === 0 ? "text-brand-orange" : "text-brand-blue"}`} />
+                        <a href={`tel:${c.phone.replace(/\s/g, "")}`} className="hover:text-foreground">
+                          {c.phone} (Landline)
+                        </a>
+                      </div>
+                      {c.mobile && (
+                        <div className="flex items-center gap-3 pl-7">
+                          <a href={`tel:${c.mobile.replace(/\s/g, "")}`} className="hover:text-foreground">
+                            {c.mobile} (Mob)
+                          </a>
+                        </div>
+                      )}
                     </li>
                     <li className="flex items-center gap-3">
                       <Mail className={`h-4 w-4 shrink-0 ${i === 0 ? "text-brand-orange" : "text-brand-blue"}`} />
