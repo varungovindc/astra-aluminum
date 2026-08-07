@@ -83,19 +83,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Astra Group delivers premium aluminium, glass, steel and smart technical services across Dubai and Umm Al Quwain.",
+          "Astra Group delivers premium aluminium, glass, steel and smart technical services across Umm Al Quwain and the UAE.",
       },
       { name: "author", content: "Astra Group of Companies" },
       { property: "og:title", content: "Astra Group of Companies — Aluminium, Glass, Steel & Smart Technical Services" },
       {
         property: "og:description",
         content:
-          "Astra Group delivers premium aluminium, glass, steel and smart technical services across Dubai and Umm Al Quwain.",
+          "Astra Group delivers premium aluminium, glass, steel and smart technical services across Umm Al Quwain and the UAE.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Astra Group of Companies — Aluminium, Glass, Steel & Smart Technical Services" },
-      { name: "twitter:description", content: "Astra Group delivers premium aluminium, glass, steel and smart technical services across Dubai and Umm Al Quwain." },
+      { name: "twitter:description", content: "Astra Group delivers premium aluminium, glass, steel and smart technical services across Umm Al Quwain and the UAE." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a787349c-1b65-4be5-ae1b-7c0067d33bf3/id-preview-6522dcce--5e9c19e1-0aa6-45cb-805e-832e41ef32c7.lovable.app-1784502190377.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a787349c-1b65-4be5-ae1b-7c0067d33bf3/id-preview-6522dcce--5e9c19e1-0aa6-45cb-805e-832e41ef32c7.lovable.app-1784502190377.png" },
     ],
