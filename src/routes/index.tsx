@@ -22,13 +22,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Astra Group delivers premium aluminium, glass, steel and smart technical services across Dubai and Umm Al Quwain.",
+          "Astra Group delivers premium aluminium, glass, steel and smart technical services across Umm Al Quwain and the UAE.",
       },
       { property: "og:title", content: "Astra Group of Companies — Aluminium, Glass, Steel & Smart Technical Services" },
       {
         property: "og:description",
         content:
-          "Astra Group delivers premium aluminium, glass, steel and smart technical services across Dubai and Umm Al Quwain.",
+          "Astra Group delivers premium aluminium, glass, steel and smart technical services across Umm Al Quwain and the UAE.",
       },
     ],
   }),
@@ -129,7 +129,7 @@ function WhoWeAre() {
             className="mt-8 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed"
           >
             Established in 2023, Astra Group of Companies brings together Astra Aluminium & Glass Works
-            in Umm Al Quwain and Astra Smart Technical Services LLC in Dubai — a single team engineering
+            in Umm Al Quwain — a single team engineering
             facades, glazing and full technical fit-outs across the UAE.
           </motion.p>
 
@@ -238,7 +238,7 @@ function Home() {
               accent="blue"
             >
               MEP, plumbing, gypsum, painting, false ceiling and finishing — the full technical
-              fit-out delivered by one accountable team.
+              fit-out delivered by Astra Group.
             </SectionHeading>
             <Reveal>
               <Link

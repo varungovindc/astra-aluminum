@@ -16,13 +16,13 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Established in 2023, Astra Group operates in Dubai and Umm Al Quwain, delivering aluminium, glass and smart technical services with craftsmanship, safety and professionalism.",
+          "Established in 2023, Astra Group operates in Umm Al Quwain, delivering aluminium, glass and smart technical services with craftsmanship, safety and professionalism.",
       },
       { property: "og:title", content: "About — Astra Group of Companies" },
       {
         property: "og:description",
         content:
-          "Who we are, our mission and our vision — Astra Group in Dubai and Umm Al Quwain.",
+          "Who we are, our mission and our vision — Astra Group in Umm Al Quwain.",
       },
     ],
   }),

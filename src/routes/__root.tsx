@@ -83,14 +83,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Astra Group delivers premium aluminium, glass, steel and smart technical services across Dubai and Umm Al Quwain.",
+          "Astra Group delivers premium aluminium, glass, steel and smart technical services across Umm Al Quwain and the UAE.",
       },
       { name: "author", content: "Astra Group of Companies" },
       { property: "og:title", content: "Astra Group of Companies — Aluminium, Glass, Steel & Smart Technical Services" },
       {
         property: "og:description",
         content:
-          "Astra Group delivers premium aluminium, glass, steel and smart technical services across Dubai and Umm Al Quwain.",
+          "Astra Group delivers premium aluminium, glass, steel and smart technical services across Umm Al Quwain and the UAE.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
