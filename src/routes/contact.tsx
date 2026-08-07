@@ -54,9 +54,22 @@ function Contact() {
                     {c.name}
                   </h2>
                   <ul className="mt-8 space-y-4 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-3 group/map">
                       <MapPin className={`mt-0.5 h-4 w-4 shrink-0 ${i === 0 ? "text-brand-orange" : "text-brand-blue"}`} />
-                      <span>{c.address}</span>
+                      <div className="flex flex-col gap-3">
+                        <span>{c.address}</span>
+                        <a 
+                          href="https://maps.app.goo.gl/A5W1xWH7CtiymM6J8?g_st=iwb" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-brand-orange"
+                        >
+                          <svg viewBox="0 0 24 24" className="h-3 w-3 fill-current" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-9-7-9zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                          </svg>
+                          Navigate
+                        </a>
+                      </div>
                     </li>
                     <li className="flex flex-col gap-3">
                       <div className="flex items-center gap-3">
