@@ -95,7 +95,7 @@ function About() {
               <div className="absolute left-0 top-0 h-full w-1 bg-brand-blue" />
               <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-ink/90 to-transparent">
                 <div className="flex flex-wrap gap-2">
-                  {["Est. 2023", "Dubai HQ", "UAQ Factory", "UAE"].map((chip) => (
+                  {["Est. 2023", "UAQ Factory", "UAE"].map((chip) => (
                     <span
                       key={chip}
                       className="border border-white/30 bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur"

@@ -115,7 +115,7 @@ export const heroSlides = [
     eyebrow: "Astra Group Of Companies",
     headlineBefore: "Aluminium. Glass. ",
     headlineTyped: "Steel.",
-    subline: "A UAE group delivering premium aluminium, glass, steel and smart technical services across Dubai and Umm Al Quwain.",
+    subline: "A UAE group delivering premium aluminium, glass, steel and smart technical services across Umm Al Quwain and the Northern Emirates.",
     ctaPrimary: { label: "Explore Services", to: "/services" as const },
     ctaSecondary: { label: "About Us", to: "/about" as const },
     accent: "orange" as const,
@@ -144,7 +144,8 @@ export const companies = [
   {
     name: "Astra Aluminium & Glass Works",
     city: "Umm Al Quwain, UAE",
-    phone: "+971 564949513",
+    phone: "+971 6 529 9753",
+    mobile: "+971505041367",
     email: "info@astragroup.ae",
     address: "Umm Al Quwain, United Arab Emirates",
   },
@@ -164,7 +165,7 @@ export const welcomeParagraphs = [
 ];
 
 export const whoAreWeParagraphs = [
-  "Astra Group of Companies UAE — Astra Smart Technical Services LLC in Dubai and Astra Aluminium & Glass Works in Umm Al Quwain — was established in 2023, with offices and factories across Dubai and UAQ.",
+  "Astra Group of Companies UAE — Astra Aluminium & Glass Works in Umm Al Quwain — was established in 2023, with offices and factories across UAQ.",
   "Our impeccable service has built a reputation across the UAE. We offer high-quality products and services at optimum pricing, backed by the right facilities and a professional, customer-centric team delivering tailored solutions that drive long-term value.",
 ];
 
@@ -178,7 +179,7 @@ export const careers = [
   {
     id: "project-engineer",
     title: "Project Engineer (Aluminium & Glass)",
-    location: "Dubai / UAQ",
+    location: "UAQ",
     type: "Full-time",
     description: "We are looking for an experienced Project Engineer to oversee aluminium and glass installation projects, ensuring quality, safety, and timely delivery.",
     requirements: [
@@ -203,8 +204,8 @@ export const careers = [
   },
   {
     id: "sales-executive",
-    title: "Sales Executive",
-    location: "Dubai",
+    title: "Technical Sales Executive",
+    location: "UAQ",
     type: "Full-time",
     description: "Drive growth for our Smart Technical Services division. You will build relationships with contractors, consultants, and property developers.",
     requirements: [
@@ -224,7 +225,7 @@ export const projects = [
     description: "Full supply and installation of slim-profile sliding doors, structural glass partitions, and bespoke aluminium pergolas for a premium residential project.",
     image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1200&auto=format&fit=crop",
     year: "2024",
-    location: "Dubai",
+    location: "UAQ / Northern Emirates",
   },
   {
     id: "commercial-tower-uaq",
@@ -242,7 +243,7 @@ export const projects = [
     description: "Frameless glass shopfronts and decorative stainless steel canopies for a high-end retail destination.",
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop",
     year: "2024",
-    location: "Dubai",
+    location: "UAQ",
   },
   {
     id: "industrial-warehouse",
@@ -251,6 +252,6 @@ export const projects = [
     description: "Design and fabrication of heavy-duty steel sheds, mezzanine floors, and automated industrial gates.",
     image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop",
     year: "2023",
-    location: "Dubai",
+    location: "UAQ",
   },
 ];

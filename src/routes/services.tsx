@@ -19,7 +19,7 @@ export const Route = createFileRoute("/services")({
       {
         property: "og:description",
         content:
-          "Aluminium, glass, steel and smart technical services delivered across Dubai and Umm Al Quwain.",
+          "Aluminium, glass, steel and smart technical services delivered across Umm Al Quwain and the UAE.",
       },
     ],
   }),
@@ -123,7 +123,7 @@ function Services() {
               Smart Technical Services
             </h2>
             <p className="mt-6 max-w-2xl text-base sm:text-lg text-white/70 leading-relaxed">
-              MEP, plumbing, gypsum, painting, false ceiling and finishing — the full technical fit-out delivered under Astra Smart Technical Services LLC, Dubai.
+              MEP, plumbing, gypsum, painting, false ceiling and finishing — the full technical fit-out delivered under Astra Group, Umm Al Quwain.
             </p>
           </Reveal>
           <PopContainer className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
