@@ -8,7 +8,7 @@ import { heroSlides } from "@/lib/astra-content";
 import heroFacade from "@/assets/hero-facade.jpg";
 import catAluminium from "@/assets/cat-aluminium.jpg";
 import catGlass from "@/assets/cat-glass.jpg";
-import astraLogo from "@/assets/astra-logo-horizontal.png.asset.json";
+import astraLogo from "@/assets/astra-logo-correct.png.asset.json";
 
 const heroImages = [heroFacade, catGlass, catAluminium];
 
@@ -61,18 +61,18 @@ export function HeroSlider() {
         }}
       />
 
-      {/* Floating 3D badge — desktop: right center. Mobile/tablet: bottom-right */}
+      {/* Logo placement — bottom-right relative to container, avoiding text/buttons */}
       <motion.div
         aria-hidden
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-        className="pointer-events-none absolute z-[12] left-1/2 -translate-x-1/2 bottom-32 sm:bottom-40 lg:left-auto lg:right-16 lg:translate-x-0 lg:top-1/2 lg:-translate-y-1/2"
+        className="pointer-events-none absolute z-[12] right-6 bottom-32 sm:right-12 sm:bottom-40 lg:right-16 lg:bottom-16"
       >
         <img
           src={astraLogo.url}
           alt=""
-          className="w-[clamp(15rem,80vw,24rem)] opacity-80 sm:w-[500px] lg:w-[650px] lg:opacity-90 drop-shadow-2xl brightness-0 invert"
+          className="w-[clamp(12rem,40vw,20rem)] opacity-80 sm:w-[350px] lg:w-[450px] lg:opacity-95 drop-shadow-2xl brightness-0 invert"
         />
         <div
           aria-hidden
