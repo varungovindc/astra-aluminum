@@ -8,7 +8,7 @@ import { heroSlides } from "@/lib/astra-content";
 import heroFacade from "@/assets/hero-facade.jpg";
 import catAluminium from "@/assets/cat-aluminium.jpg";
 import catGlass from "@/assets/cat-glass.jpg";
-import astraBadge from "@/assets/astra-logo-rectangle.png.asset.json";
+import astraLogo from "@/assets/astra-logo-horizontal.png.asset.json";
 
 const heroImages = [heroFacade, catGlass, catAluminium];
 
@@ -70,9 +70,9 @@ export function HeroSlider() {
         className="pointer-events-none absolute z-[12] right-6 bottom-40 sm:right-10 sm:bottom-44 md:right-16 md:bottom-48 lg:right-8 lg:top-1/2 lg:-translate-y-1/2"
       >
         <img
-          src={astraBadge.url}
+          src={astraLogo.url}
           alt=""
-          className="w-[clamp(12rem,40vw,16rem)] opacity-95 sm:w-80 md:w-96 lg:w-[450px] lg:opacity-100 drop-shadow-2xl"
+          className="w-[clamp(14rem,50vw,20rem)] opacity-95 sm:w-[450px] md:w-[500px] lg:w-[600px] lg:opacity-100 drop-shadow-2xl brightness-0 invert"
         />
         <div
           aria-hidden
