@@ -8,7 +8,7 @@ import { heroSlides } from "@/lib/astra-content";
 import heroFacade from "@/assets/hero-facade.jpg";
 import catAluminium from "@/assets/cat-aluminium.jpg";
 import catGlass from "@/assets/cat-glass.jpg";
-import astraLogo from "@/assets/astra-logo-correct.png.asset.json";
+
 
 const heroImages = [heroFacade, catGlass, catAluminium];
 
@@ -61,28 +61,6 @@ export function HeroSlider() {
         }}
       />
 
-      {/* Logo placement — bottom-right relative to container, avoiding text/buttons */}
-      <motion.div
-        aria-hidden
-        initial={{ opacity: 0, scale: 0.9, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-        className="pointer-events-none absolute z-[12] right-6 bottom-32 sm:right-12 sm:bottom-40 lg:right-16 lg:bottom-16"
-      >
-        <img
-          src={astraLogo.url}
-          alt=""
-          className="w-[clamp(12rem,40vw,20rem)] opacity-80 sm:w-[350px] lg:w-[450px] lg:opacity-95 drop-shadow-2xl brightness-0 invert"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 blur-3xl opacity-60"
-          style={{
-            background:
-              "radial-gradient(closest-side, rgba(232,93,44,0.35), transparent 70%), radial-gradient(closest-side, rgba(59,180,229,0.35), transparent 70%)",
-          }}
-        />
-      </motion.div>
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-6 pt-32 pb-16">
         <div className="flex-1 grid grid-cols-1 items-center">
