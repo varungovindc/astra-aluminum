@@ -60,11 +60,11 @@ export function Footer() {
                 <li className="flex flex-col gap-2">
                   <div className="flex items-center gap-3">
                     <Phone className="h-4 w-4 shrink-0 text-brand-blue" />
-                    <a href={`tel:${c.phone.replace(/\s/g, "")}`}>{c.phone} (Landline)</a>
+                    <a href={`tel:${c.phone.replace(/\s/g, "")}`}>{c.phone}</a>
                   </div>
                   {c.mobile && (
                     <div className="flex items-center gap-3 pl-7">
-                      <a href={`tel:${c.mobile.replace(/\s/g, "")}`}>{c.mobile} (Mob)</a>
+                      <a href={`tel:${c.mobile.replace(/\s/g, "")}`}>{c.mobile}</a>
                     </div>
                   )}
                 </li>
