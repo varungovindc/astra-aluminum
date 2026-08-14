@@ -77,13 +77,13 @@ function Contact() {
                       <div className="flex items-center gap-3">
                         <Phone className={`h-4 w-4 shrink-0 ${i === 0 ? "text-brand-orange" : "text-brand-blue"}`} />
                         <a href={`tel:${c.phone.replace(/\s/g, "")}`} className="hover:text-foreground">
-                          {c.phone} (Landline)
+                          {c.phone}
                         </a>
                       </div>
                       {c.mobile && (
                         <div className="flex items-center gap-3 pl-7">
                           <a href={`tel:${c.mobile.replace(/\s/g, "")}`} className="hover:text-foreground">
-                            {c.mobile} (Mob)
+                            {c.mobile}
                           </a>
                         </div>
                       )}
